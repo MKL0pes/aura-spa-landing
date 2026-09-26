@@ -3,14 +3,14 @@ import { ArrowDown, ArrowRight, Instagram, Menu, Phone, Sparkles } from "lucide-
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import heroPhoto from "@/assets/hero-massage.jpg.asset.json";
-import facialPhoto from "@/assets/facial-ritual.jpg.asset.json";
-import oilsPhoto from "@/assets/oils-towels.jpg.asset.json";
-import backPhoto from "@/assets/back-massage.jpg.asset.json";
-import drainagePhoto from "@/assets/drainage.jpg.asset.json";
-import detailPhoto from "@/assets/massage-detail.jpg.asset.json";
-import headPhoto from "@/assets/head-massage.jpg.asset.json";
-import footPhoto from "@/assets/foot-massage.jpg.asset.json";
+const heroPhoto = { url: "/images/hero-massage.jpg" };
+const facialPhoto = { url: "/images/facial-ritual.jpg" };
+const oilsPhoto = { url: "/images/oils-towels.jpg" };
+const backPhoto = { url: "/images/back-massage.jpg" };
+const drainagePhoto = { url: "/images/drainage.jpg" };
+const detailPhoto = { url: "/images/massage-detail.jpg" };
+const headPhoto = { url: "/images/head-massage.jpg" };
+const footPhoto = { url: "/images/foot-massage.jpg" };
 
 const whatsapp = "https://wa.me/5561992891404";
 
