@@ -41,7 +41,7 @@ const additions = [
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
     { title: "Ladrilhar Spa | Massagens e rituais de cuidado" },
-    { name: "description", content: "Conheça os procedimentos, rituais e pacotes do Ladrilhar Spa. Agende pelo WhatsApp." },
+    { name: "description", content: "Conheça os procedimentos, rituais, pacotes e a política de agendamento do Ladrilhar Spa. Agende pelo WhatsApp." },
     { property: "og:title", content: "Ladrilhar Spa | Massagens e rituais de cuidado" },
     { property: "og:description", content: "Um espaço para desacelerar e dedicar um momento ao seu bem-estar." },
     { property: "og:type", content: "website" },
@@ -66,11 +66,11 @@ function Index() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
           <Brand light />
           <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground md:flex">
-            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
+            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#como-chegar" className="transition-opacity hover:opacity-65">Como chegar</a><a href="#politica" className="transition-opacity hover:opacity-65">Política</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
           </nav>
           <Button variant="spa-light" size="icon" aria-label="Abrir menu" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><Menu /></Button>
         </div>
-        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
+        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#como-chegar" onClick={() => setMenuOpen(false)}>Como chegar</a><a href="#politica" onClick={() => setMenuOpen(false)}>Política</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
       </header>
 
       <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-primary pb-14 pt-28 text-primary-foreground md:items-center md:pb-0">
