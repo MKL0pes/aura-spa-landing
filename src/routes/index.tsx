@@ -38,10 +38,26 @@ const additions = [
   ["Pés + Mãos ou Couro Cabeludo", "R$ 39,90"],
 ];
 
+const policies: { title: string; body: string; wide?: boolean }[] = [
+  { title: "Agendamento", body: "Atendimentos mediante agendamento prévio. Informe nome, procedimento desejado, data e horário de preferência." },
+  { title: "Confirmação", body: "Sinal de 30% do valor do procedimento para reservar. O horário só é confirmado após o sinal. O restante é pago no dia." },
+  { title: "Remarcações e cancelamentos", body: "Avise com no mínimo 3 horas de antecedência. Cancelamentos ou alterações dentro desse período, e faltas sem aviso, resultam na perda do sinal de 30%, que não será devolvido. Remarcações sujeitas à disponibilidade da agenda.", wide: true },
+  { title: "Atrasos", body: "Chegue no horário marcado. Atrasos podem reduzir o tempo do atendimento. Atrasos acima de 15 minutos sem aviso podem ser considerados desistência, com perda do sinal.", wide: true },
+  { title: "Pagamento", body: "Pix, dinheiro, cartão ou boleto, conforme disponibilidade. Pacotes em até 3x no cartão." },
+  { title: "Promoções", body: "Válidas no período divulgado e não cumulativas, salvo quando especificado." },
+  { title: "Pacotes", body: "Utilizados conforme as condições informadas na contratação." },
+  { title: "Nosso compromisso", body: "Cada horário é reservado para você. Pontualidade e comunicação mantêm a experiência tranquila para todas." },
+];
+
+const mapEmbed =
+  "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d240.12726344187524!2d-47.82652411592439!3d-15.643059856649444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1790446309500!5m2!1spt-BR!2sbr";
+const mapsLink =
+  "https://www.google.com/maps/search/?api=1&query=-15.643059856649444,-47.82652411592439";
+
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
     { title: "Ladrilhar Spa | Massagens e rituais de cuidado" },
-    { name: "description", content: "Conheça os procedimentos, rituais e pacotes do Ladrilhar Spa. Agende pelo WhatsApp." },
+    { name: "description", content: "Conheça os procedimentos, rituais, pacotes e a política de agendamento do Ladrilhar Spa. Agende pelo WhatsApp." },
     { property: "og:title", content: "Ladrilhar Spa | Massagens e rituais de cuidado" },
     { property: "og:description", content: "Um espaço para desacelerar e dedicar um momento ao seu bem-estar." },
     { property: "og:type", content: "website" },
@@ -66,11 +82,11 @@ function Index() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
           <Brand light />
           <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground md:flex">
-            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
+            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#como-chegar" className="transition-opacity hover:opacity-65">Como chegar</a><a href="#politica" className="transition-opacity hover:opacity-65">Política</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
           </nav>
           <Button variant="spa-light" size="icon" aria-label="Abrir menu" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><Menu /></Button>
         </div>
-        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
+        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#como-chegar" onClick={() => setMenuOpen(false)}>Como chegar</a><a href="#politica" onClick={() => setMenuOpen(false)}>Política</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
       </header>
 
       <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-primary pb-14 pt-28 text-primary-foreground md:items-center md:pb-0">
@@ -125,9 +141,36 @@ function Index() {
 
       <section className="bg-terracotta px-5 py-24 text-primary-foreground md:py-28 lg:px-10"><div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.8fr_1.2fr]"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Complete seu momento</p><h2 className="mt-4 text-5xl md:text-6xl">Adicionais</h2><p className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/70">Todos os adicionais podem ser incluídos em qualquer procedimento ou pacote, mediante acréscimo do valor correspondente.</p></div><div className="border-t border-primary-foreground/30">{additions.map(([name, price]) => <div key={name} className="flex justify-between gap-6 border-b border-primary-foreground/30 py-5 text-sm"><span>{name}</span><strong className="shrink-0 text-gold">{price}</strong></div>)}</div></div></section>
 
+      <section id="como-chegar" className="px-5 py-24 md:py-32 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-16">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">Como chegar</p>
+            <h2 className="mt-4 text-5xl leading-tight text-primary md:text-6xl">Onde nos <span className="italic text-terracotta">encontrar.</span></h2>
+            <p className="mt-7 max-w-md text-sm leading-7 text-muted-foreground">Veja no mapa o ponto onde acontecem os atendimentos e fale com a gente para escolher o melhor dia e horário.</p>
+            <div className="mt-8 flex flex-wrap gap-3"><Button asChild variant="spa-outline" size="spa"><a href={mapsLink} target="_blank" rel="noreferrer">Abrir no Google Maps<ArrowRight /></a></Button><BookingButton label="Agendar" /></div>
+          </div>
+          <div className="overflow-hidden border border-border bg-card shadow-spa"><iframe title="Mapa com a localização do Ladrilhar Spa" src={mapEmbed} className="h-[340px] w-full md:h-[460px]" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /></div>
+        </div>
+      </section>
+
+      <section id="politica" className="bg-muted px-5 py-24 md:py-32 lg:px-10">
+        <div className="mx-auto max-w-6xl border border-border bg-card px-6 py-14 shadow-spa md:px-14 md:py-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">Antes do seu horário</p>
+            <h2 className="mt-4 text-5xl text-primary md:text-6xl">Política de agendamento</h2>
+            <span className="mx-auto mt-7 block h-px w-16 bg-gold" />
+            <p className="mt-7 text-sm leading-7 text-muted-foreground">Para proporcionar um atendimento organizado, tranquilo e exclusivo para cada cliente, pedimos que leia com atenção nossa política de agendamento.</p>
+          </div>
+          <div className="mt-12 grid gap-4 md:grid-cols-2">
+            {policies.map((item) => <article key={item.title} className={`border border-border bg-muted p-7 ${item.wide ? "md:col-span-2" : ""}`}><h3 className="text-2xl text-primary">{item.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p></article>)}
+          </div>
+          <p className="mt-12 text-center text-sm text-muted-foreground">Obrigada por escolher a Ladrilhar. <span className="italic text-terracotta">Seu momento de pausa começa aqui.</span></p>
+        </div>
+      </section>
+
       <section id="contato" className="relative overflow-hidden bg-primary px-5 py-24 text-primary-foreground md:py-36 lg:px-10"><img src={headPhoto.url} alt="Momento de relaxamento" className="absolute inset-0 h-full w-full object-cover opacity-15"/><div className="absolute inset-0 bg-primary/75"/><div className="topographic absolute -bottom-32 -left-20 h-[480px] w-[480px] rounded-full opacity-20"/><div className="relative mx-auto max-w-4xl text-center"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Seu momento começa aqui</p><h2 className="mt-5 text-5xl leading-tight md:text-8xl">Permita-se uma pausa.</h2><p className="mx-auto mt-7 max-w-xl text-sm leading-7 text-primary-foreground/70">Fale conosco e escolha o cuidado que combina com o seu momento.</p><div className="mt-9"><BookingButton light /></div><div className="mt-10 flex flex-col items-center justify-center gap-4 text-sm sm:flex-row sm:gap-8"><a className="flex items-center gap-2" href="tel:+5561992891404"><Phone className="size-4 text-gold" />(61) 99289-1404</a><a className="flex items-center gap-2" href="https://instagram.com/ladrilharspa" target="_blank" rel="noreferrer"><Instagram className="size-4 text-gold" />@ladrilharspa</a></div></div></section>
 
-      <footer className="bg-sage-deep px-5 py-8 text-primary-foreground lg:px-10"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left"><Brand light /><p className="text-xs text-primary-foreground/55">Massagens, rituais e experiências de cuidado.</p></div></footer>
+      <footer className="bg-sage-deep px-5 py-8 text-primary-foreground lg:px-10"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left"><Brand light /><p className="text-xs text-primary-foreground/55">Massagens, rituais e experiências de cuidado.</p><nav className="flex flex-wrap items-center justify-center gap-5 text-xs uppercase tracking-[0.12em] text-primary-foreground/70"><a href="#como-chegar" className="transition-opacity hover:opacity-70">Como chegar</a><a href="#politica" className="transition-opacity hover:opacity-70">Política de agendamento</a></nav></div></footer>
     </main>
   );
 }
