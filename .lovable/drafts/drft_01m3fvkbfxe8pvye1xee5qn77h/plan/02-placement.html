@@ -1,0 +1,28 @@
+<!doctype html>
+<html><body>
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo da página com nova seção de vídeo entre Sobre e Serviços">
+  <style>
+    text { font-family: var(--font-sans); fill: var(--fg-primary); letter-spacing: 0; }
+    .label { font-size: 14px; font-weight: 480; }
+    .note { font-size: 12px; fill: var(--fg-secondary); }
+    .box { fill: none; stroke: var(--fg-secondary); stroke-width: 1; rx: 8; }
+    .accent { fill: var(--bg-accent-translucent); stroke: var(--fg-accent); stroke-width: 1; rx: 8; }
+    .wire { stroke: var(--fg-secondary); stroke-width: 1; fill: none; }
+  </style>
+  <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="var(--fg-secondary)"/></marker></defs>
+  <rect class="box" x="40" y="111" width="130" height="70"/>
+  <text class="label" x="105" y="142" text-anchor="middle">Sobre</text>
+  <text class="note" x="105" y="161" text-anchor="middle">filosofia</text>
+  <path class="wire" d="M170 146H234" marker-end="url(#arrow)"/>
+  <rect class="accent" x="242" y="76" width="156" height="140"/>
+  <rect x="285" y="92" width="70" height="105" rx="6" fill="var(--bg-muted)" stroke="var(--fg-accent)"/>
+  <circle cx="320" cy="145" r="15" fill="var(--bg-accent)"/>
+  <path d="M316 137L327 145L316 153Z" fill="var(--fg-emphasis)"/>
+  <text class="label" x="320" y="239" text-anchor="middle">Experiência em vídeo</text>
+  <text class="note" x="320" y="258" text-anchor="middle">controles nativos · capa própria</text>
+  <path class="wire" d="M398 146H462" marker-end="url(#arrow)"/>
+  <rect class="box" x="470" y="111" width="130" height="70"/>
+  <text class="label" x="535" y="142" text-anchor="middle">Serviços</text>
+  <text class="note" x="535" y="161" text-anchor="middle">procedimentos</text>
+</svg>
+</body></html>
