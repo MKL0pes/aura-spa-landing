@@ -106,7 +106,6 @@ function VideoSection() {
             <video
               ref={videoRef}
               className="block aspect-[9/16] h-full w-full object-cover"
-              src="/videos/demonstracao-massagem.mp4"
               poster="/images/video-poster.jpg"
               autoPlay
               muted
@@ -114,7 +113,10 @@ function VideoSection() {
               playsInline
               preload="metadata"
               aria-label="Demonstração de massagem no Ladrilhar Spa"
-            />
+            >
+              <source src="/videos/demonstracao-massagem.webm" type="video/webm" />
+              <source src="/videos/demonstracao-massagem.mp4" type="video/mp4" />
+            </video>
             <span className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sage-deep/70 to-transparent" aria-hidden="true" />
           </div>
         </div>
