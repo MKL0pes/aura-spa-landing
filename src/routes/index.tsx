@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Instagram, Menu, Phone, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { ArrowDown, ArrowRight, Instagram, Menu, Phone, Sparkles, Volume2, VolumeX } from "lucide-react";
+import { useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 const heroPhoto = { url: "/images/hero-massage.jpg" };
