@@ -159,6 +159,10 @@ function Index() {
         </div>
       </section>
 
+      <VideoSection />
+
+
+
       <section id="servicos" className="bg-primary px-5 py-24 text-primary-foreground md:py-32 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Procedimentos avulsos</p><h2 className="mt-4 text-5xl md:text-7xl">Cuidados essenciais</h2></div><p className="max-w-sm text-sm leading-7 text-primary-foreground/65">Escolha o momento que faz sentido para você.</p></div>
