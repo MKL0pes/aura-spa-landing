@@ -131,7 +131,7 @@ function Index() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
           <Brand light />
           <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground md:flex">
-            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#como-chegar" className="transition-opacity hover:opacity-65">Como chegar</a><a href="#politica" className="transition-opacity hover:opacity-65">Política</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
+            <a href="#sobre" className="transition-opacity hover:opacity-65">Sobre</a><a href="#demonstracao" className="transition-opacity hover:opacity-65">Vídeo</a><a href="#servicos" className="transition-opacity hover:opacity-65">Serviços</a><a href="#pacotes" className="transition-opacity hover:opacity-65">Pacotes</a><a href="#como-chegar" className="transition-opacity hover:opacity-65">Como chegar</a><a href="#politica" className="transition-opacity hover:opacity-65">Política</a><a href="#contato" className="transition-opacity hover:opacity-65">Contato</a>
           </nav>
           <Button variant="spa-light" size="icon" aria-label="Abrir menu" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><Menu /></Button>
         </div>
