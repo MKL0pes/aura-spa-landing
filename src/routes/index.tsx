@@ -74,6 +74,55 @@ function BookingButton({ light = false, label = "Agende seu horário" }: { light
   return <Button asChild variant={light ? "spa-light" : "spa"} size="spa"><a href={whatsapp} target="_blank" rel="noreferrer">{label}<ArrowRight /></a></Button>;
 }
 
+function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+    void video.play().catch(() => undefined);
+  };
+
+  return (
+    <section id="demonstracao" className="relative overflow-hidden bg-sage-deep px-5 py-24 text-primary-foreground md:py-32 lg:px-10">
+      <span className="topographic pointer-events-none absolute inset-0 opacity-25" aria-hidden="true" />
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-[1.05fr_0.95fr] md:gap-20">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Em movimento</p>
+          <h2 className="mt-4 text-5xl leading-tight md:text-7xl">Veja como é <span className="italic text-gold">desacelerar</span></h2>
+          <p className="mt-8 max-w-md text-base leading-8 text-primary-foreground/75">Movimentos contínuos, suaves e ritmados. Um registro real do cuidado que acontece na maca do Ladrilhar.</p>
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <BookingButton light label="Agende seu horário" />
+            <Button variant="spa-light" size="spa" onClick={toggleSound}>
+              {muted ? <><Volume2 />Ativar som</> : <><VolumeX />Desativar som</>}
+            </Button>
+          </div>
+        </div>
+        <div className="mx-auto w-full max-w-[340px]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-primary-foreground/15 shadow-spa">
+            <video
+              ref={videoRef}
+              className="block aspect-[9/16] h-full w-full object-cover"
+              src="/videos/demonstracao-massagem.mp4"
+              poster="/images/video-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Demonstração de massagem no Ladrilhar Spa"
+            />
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sage-deep/70 to-transparent" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
