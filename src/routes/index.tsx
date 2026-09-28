@@ -135,7 +135,7 @@ function Index() {
           </nav>
           <Button variant="spa-light" size="icon" aria-label="Abrir menu" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><Menu /></Button>
         </div>
-        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#como-chegar" onClick={() => setMenuOpen(false)}>Como chegar</a><a href="#politica" onClick={() => setMenuOpen(false)}>Política</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
+        {menuOpen && <nav className="mx-4 flex flex-col gap-5 border-t border-primary-foreground/20 bg-primary px-6 py-6 text-sm uppercase tracking-[0.12em] text-primary-foreground md:hidden"><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#demonstracao" onClick={() => setMenuOpen(false)}>Vídeo</a><a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#pacotes" onClick={() => setMenuOpen(false)}>Pacotes</a><a href="#como-chegar" onClick={() => setMenuOpen(false)}>Como chegar</a><a href="#politica" onClick={() => setMenuOpen(false)}>Política</a><a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
       </header>
 
       <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-primary pb-14 pt-28 text-primary-foreground md:items-center md:pb-0">
